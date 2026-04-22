@@ -1,5 +1,5 @@
 import React, { useState, type ReactNode } from "react";
-import { Navbar, Sidebar, Footer } from "./index";
+import { Navbar, Sidebar, Footer } from "../layouts";
 
 interface MainLayoutProps {
   content: ReactNode;

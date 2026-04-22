@@ -1,16 +1,12 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { PATHS } from "./path";
 
 // Lazy Loading
 const Dashboard = React.lazy(() => import("../pages/Dashboard"));
+const Users = React.lazy(() => import("../pages/users/Users"));
 
 export const Routes = createBrowserRouter([
-  // Root redirect
-  {
-    path: "/",
-    element: <Navigate to={PATHS.APP.DASHBOARD} replace />,
-  },
 
   // Authenticated
   {
@@ -22,11 +18,11 @@ export const Routes = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Dashboard />
-          </Suspense>
-        ),
+        element: <Dashboard />,
+      },
+      {
+        path: "users",
+        element: <Users />,
       },
     ],
   },
